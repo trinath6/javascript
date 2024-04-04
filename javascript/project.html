@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let e=fetch("https://api.coingecko.com/api/v3/coins/list",{
+            method:"GET"
+        })
+        console.log(e)
+        e.then((a)=>a.json()).then((v)=>console.log(v))
+
+let id="50cent"
+
+
+        let f=fetch(`https://api.coingecko.com/api/v3/coins/${id}`,{
+            method:"GET"
+        })
+        console.log(f)
+        f.then((a)=>a.json()).then((v)=>console.log(v))
+
+    </script>
+</body>
+</html>

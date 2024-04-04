@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            /* background-image: linear-gradient(red,yellow); */
+            background-Image:linear-gradient(to left, rgb(118, 220, 118) ,rgb(249, 204, 204), rgb(173, 173, 253)  );
+        }
+        div{
+             /* border: 2px solid black; */
+             height: 200px;
+             width:500px;
+             /* margin: auto; */
+             margin-top:300px;
+             margin-bottom: auto;
+             margin-left: auto;
+             margin-right: auto;
+             background-color: antiquewhite;
+             border-radius: 14px;
+             position: relative;
+
+        }
+        .h1{
+            position:absolute;
+            top:4px;
+            font-family:'Comic Sans MS', cursive;
+            font-weight: bold;
+            font-size:24px;
+            left: 129px;
+
+        }
+        button{
+            border-radius: 12px;
+            background-color: orange;
+            border: transparent;
+            position: absolute;
+            height:40px;
+            width:90px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            left:190px;
+            top:150px;
+        }
+        .p{
+            background-image:linear-gradient(to bottom,rgb(253, 253, 101),rgb(167, 167, 255));
+            height:80px;
+            width: 190px;
+            position: absolute;
+            top:40px;
+            left:150px;
+            border-radius:12px;
+            font-size:25px;
+            display: grid;
+            align-items: center;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <p class="h1">OTP GENERATOR</p>
+         <p class="p"></p>
+        <button type="submit" class="button" id="button">
+            GENERATE
+        </button>
+    </div>
+    <script>
+       var  btn=document.getElementById("button")
+        let a=document.getElementsByClassName("p")
+        btn.addEventListener("click",()=>{
+            a[0].innerHTML=Math.floor( Math.random()*9000 )+1000;
+        
+        })      
+    </script>
+</body>
+</html>

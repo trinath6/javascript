@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            background-image:url("https://www.shutterstock.com/shutterstock/videos/23497663/thumb/5.jpg?ip=x480");
+            /* opacity:1; */
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+        .container{
+            padding: 1rem;
+            width:600px;
+            height: 200px;
+            text-align: center;
+            position: relative;
+            border-radius: 10px;
+            /* background-color:rgba(255, 176, 176, 0.425) ; */
+            opacity:0.9;
+        }
+        button{
+            height:40px;
+            background-image:linear-gradient(to right,hwb(0 59% 5% / 0.467),rgb(246, 246, 154),rgba(149, 149, 251, 0.464));
+            width: 90px;
+            border-radius: 20px;
+            position: relative;
+            left:-70px;
+            bottom: 60px;
+        
+           
+        }
+        p{
+            font-size:30px;
+            font-size:70px;
+            color: rgb(184, 223, 247);
+            position: relative;
+            left: -65px;
+            bottom: 40px;
+
+        }
+        /* .time{
+            padding: 1rem 0;
+            font-size: 2rem;
+        } */
+        button:hover{
+            background-color: rgb(183, 138, 226);
+            color: #ff0000;
+            box-shadow: -10px 30px 100px bisque;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-size:60px;color: antiquewhite;position: relative;left:-70px;">STOP WATCH</h1>
+        <p class="time">
+            <span class="min">00</span>:<span class="sec">00</span>:<span class="tens">00</span>
+        </p>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        <button id="reset">Reset</button>
+
+    </div>
+    <script>
+        window.onload = function () {
+            let minut = 0;
+            let seconds = 0;
+            let tens = 0;
+    
+            let appendMin = document.querySelector(".min");
+            let appendSec = document.querySelector(".sec");
+            let appendTens = document.querySelector(".tens");
+    
+            let startBtn = document.querySelector("#start");
+            let stopBtn = document.querySelector("#stop");
+            let resetBtn = document.querySelector("#reset");
+    
+            let Interval;
+    
+            function startTimer() {
+                tens++;
+    
+                if (tens <= 9) {
+                    appendTens.innerHTML = "0" + tens;
+                }
+    
+                if (tens > 9) {
+                    appendTens.innerHTML = tens;
+                }
+    
+                if (tens > 99) {
+                    seconds++;
+                    appendSec.innerHTML = '0' + seconds;
+                    tens = 0;
+                    appendTens.innerHTML = '0' + 0;
+                }
+    
+                if (seconds > 59) {
+                    minut++;
+                    appendMin.innerHTML = '0' + minut;
+                    seconds = 0;
+                    appendSec.innerHTML = '0' + 0;
+                }
+            }
+    
+            startBtn.onclick = function () {
+                clearInterval(Interval);
+                Interval = setInterval(startTimer, 10);
+            };
+    
+            stopBtn.onclick = function () {
+                clearInterval(Interval);
+            };
+    
+            resetBtn.onclick = function () {
+                // clearInterval(Interval);
+                tens = '00';
+                seconds = '00';
+                minut = '00';
+                appendTens.innerHTML = tens;
+                appendSec.innerHTML = seconds;
+                appendMin.innerHTML = minut;
+            };
+        };
+    </script>
+</body>
+</html>
+
+

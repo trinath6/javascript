@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* body{
+            background-image:linear-gradient(to right, rgb(252, 139, 139),rgb(144, 144, 250),rgb(149, 253, 149))
+          } */
+        div{
+            background-color: rgba(232, 229, 227, 0.612);
+            position: relative;
+            height:450px;
+            width:350px;
+            border-radius:19px;
+            left:700px;
+            top:-700px;
+        }
+        .h2{
+            position: relative;
+            top:10px;
+            left:29px;
+        }
+        form{
+            padding-left:20px;
+            margin-top:50px;
+            display:flex;
+            flex-direction: column;
+            row-gap: 20px;
+        }
+      input{
+        background-color: transparent;
+        width:280px;
+        border:burlywood;
+        height:23px;
+        border-radius: 12px;
+
+        
+      }
+      input:hover{
+        background-color:rgb(207, 235, 225);
+        border: rgb(112, 111, 111);
+      }
+      .submit{
+        border: 2px orangered;
+        background-color: rgba(240, 133, 93, 0.656);
+        width: 100px;
+        height:40px;
+        border-radius:52px;
+        position: relative;
+        left:100px;
+        top:0px;
+      }
+      #logo{
+        color:orangered;
+        position: relative;
+        left:120px;
+        top:17px;
+      }
+
+      .submit:hover{
+        background-color: rgb(36, 252, 8);
+        color: black;
+      }     
+      video{
+      
+       height:100%;
+       width:100%;
+      }
+
+    
+
+    </style>
+
+
+</head>
+<body>
+  
+   <video autoplay>
+      <source src="./colour.mp4"/>
+    </video>
+    
+    <div>
+    
+        <i class="fa fa-html5" id="logo" style="font-size:94px"></i>
+     <h2 class="h2">CREAT NEW ACCOUNT</h2>
+    <form>
+        <input type="input" class="input" placeholder="Enter Name "/>
+        <input type="password" class="input2" placeholder="Enter password"/>
+        <input type="password" class="password" placeholder="Enter password Again"/>
+        <input type="tell"  class="tell" placeholder="Enter Mobile Number"/>
+        <input type="submit" class="submit" />
+    </form>
+    </div>
+   
+  
+  
+    <script>
+        let password=document.getElementsByClassName("password")
+        let form=document.getElementsByTagName("form")
+        
+        let arr=[]
+       
+        form[0].addEventListener("submit",(e)=>{
+            e.preventDefault()
+            let obj={}
+            obj["Username"]=form[0][0].value
+            obj["password"]=form[0][1].value
+            console.log(form[0][1].value,"p1")
+            obj["password2"]=form[0][2].value
+            console.log(form[0][2].value,"p2")
+            obj["mobilenum"]=form[0][3].value
+
+           
+            arr.push(obj)
+            console.log(arr)
+          
+
+            if(obj["password2"] !==  obj["password"])
+            {
+              
+            //   let a=document.createElement("p")
+            //   a.innerHTML="**password not matched**";
+            //   password[0].appendChild(a)
+            //   a.style.position="relative"
+            //   a.style.top="300px"
+            //   a.style.color="black"
+               alert("password missmatched give same password")
+            }
+            else{
+            let obj1=JSON.stringify(obj)
+            localStorage.setItem("USERNAME",obj1)
+            
+            // }
+          
+
+            }
+        })
+
+    </script> 
+</body>
+</html>  
